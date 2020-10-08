@@ -1,0 +1,43 @@
+{% extends 'base.html' %} {% block content %}
+
+<section class="site-banner">
+  <div class="site-banner-content">
+    <h1 class="site-banner__title">
+      Hey, I’m Someone
+      <h2 class="site-banner__subtitle">A Python programmer.</h2>
+    </h1>
+    {% comment %}
+    <h2 class="site-banner__subtitle">A Python programmer.</h2>
+    {% endcomment %}
+  </div>
+</section>
+
+<h1 style="padding-top: 30px; padding-left: 10px">Projects</h1>
+<div
+  class="container-fluid"
+  id="projects"
+  style="padding-top: 50px; padding-bottom: 50px"
+>
+  <div class="row row-cols-1 row-cols-md-6">
+    {% for project in projects %}
+    <div class="col mb-4">
+      <div class="card text-white bg-dark mb-3" style="width: 18rem">
+        <img
+          src="{{ project.image_url }}"
+          class="card-img-top"
+          alt="..."
+          ,
+          style="height: 260px"
+        />
+        <div class="card-body">
+          <h5 class="card-title">{{ project.name }}</h5>
+          <p class="card-text">{{ project.info }}</p>
+          <a href="{{ project.github_url }}" class="btn btn-primary">Github</a>
+        </div>
+      </div>
+    </div>
+    {% endfor %}
+  </div>
+</div>
+
+{% endblock %}
